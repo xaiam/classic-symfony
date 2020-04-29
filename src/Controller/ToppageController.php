@@ -5,13 +5,14 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
-class AppBundleToppageController extends AbstractController
+class ToppageController extends AbstractController
 {
     /**
      * @Route("/", name="toppage")
      */
     public function indexAction()
     {
-        return $this->render('Toppage/index.html.twig');
+        $information = '5月と６月の買う円情報を追加しました';
+        return $this->render('Toppage/index.php.twig', ['information' => $information]);
     }
 }

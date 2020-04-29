@@ -1,0 +1,9 @@
+<html>
+<head></head>
+<body>
+<div>新着ブログ記事</div>
+{% for blog in blogList %}
+    <li>[{{ blog.targetDate }}] {{ blog.title }}</li>
+{% endfor %}
+</body>
+</html>

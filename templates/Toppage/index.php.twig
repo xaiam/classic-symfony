@@ -1,6 +1,12 @@
 <?php
 <html>
+<head></head>
+<body>
 <div>
   <h1>クラシックシンフォニーのサイトへようこそ！</h1>
+  <p>{{ include("Common/information.html.twig") }}</p>
+  <p><a href="{{ path('concert') }}">公園情報はこちら</a></p>
+  {{ render(controller("App\\Controller\\BlogController:latestListAction")) }}
 </div>
+</body>
 </html>
