@@ -13,6 +13,6 @@ class ToppageController extends AbstractController
     public function indexAction()
     {
         $information = '5月と６月の買う円情報を追加しました';
-        return $this->render('Toppage/index.php.twig', ['information' => $information]);
+        return $this->render('Toppage/index.html.twig', ['information' => $information]);
     }
 }
