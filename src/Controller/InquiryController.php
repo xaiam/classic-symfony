@@ -8,17 +8,15 @@ use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Routing\Annotation\Route;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
- * @Route("/inquiry", name="inquiry_")
+ * @Route("/inquiry")
  */
 class InquiryController extends AbstractController
 {
     /**
-     * @Route("/", name="index")
-     * $Method("get")
+     * @Route("/", methods={"GET"})
      */
     public function indexAction()
     {
@@ -36,18 +34,20 @@ class InquiryController extends AbstractController
 
     private function createInquiryForm()
     {
-        return $this->createFormBuilder()
-        ->add('name', TextType::class)
-        ->add('email', TextType::class)
-        ->add('tel', TextType::class, ['required' => false])
-        ->add('type', ChoiceType::class, [choices => ['公園について' => true, 'その他' => true,], 'expanded' => true])
-        ->add(content, TextareaType::class)
-        ->add('submit', SubmitType::class, ['label' => '送信',])
-        ->getForm();
+        return $this
+            ->createFormBuilder()
+            ->add('name', TextType::class)
+            ->add('email', TextType::class)
+            ->add('tel', TextType::class, ['required' => false])
+            ->add('type', ChoiceType::class, ['choices' => ['公園について' => true, 'その他' => true,], 'expanded' => true])
+            ->add('content', TextareaType::class)
+            ->add('submit', SubmitType::class, ['label' => '送信'])
+            ->getForm()
+        ;
     }
 
     /**
-     * $Route("/complete")
+     * @Route("/complete")
      */
     private function completeAction()
     {
@@ -55,15 +55,19 @@ class InquiryController extends AbstractController
     }
 
     /**
-     * @Route("/")
+     * @Route("/", methods={"POST"})
      */
     public function indexPostAction(Request $request)
     {
         $form = $this->createInquiryForm();
         $form->handleRequest($request);
-        if ($form->isValid()){
+
+        if ($form->isSubmitted() && $form->isValid()) {
             return $this->redirect(
                 $this->generateUrl('app_inquiry_complete'));
         }
+
+        return $this->render('Inquiry/index.html.twig',[
+            'form' => $form->createView()]);
     }
 }
