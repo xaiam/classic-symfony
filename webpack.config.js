@@ -15,11 +15,7 @@ Encore
     // only needed for CDN's or sub-directory deploy
     //.setManifestKeyPrefix('build/')
 
-    // ここ分からない
-    .copyFiles({
-        from: './assets/img/top/',
-        to: 'images/sample.jpg'
-    })
+
 
     /*
      * ENTRY CONFIG
@@ -77,10 +73,6 @@ Encore
     //.enableReactPreset()
     //.addEntry('admin', './assets/js/admin.js')
 
-    // ↓これはやめました
-    // .addPlugin(new CopyWebpackPlugin([
-    //     { from: './assets/img/top', to: 'images' }
-    // ]))
 ;
 
 module.exports = Encore.getWebpackConfig();
