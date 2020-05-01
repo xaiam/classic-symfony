@@ -14,7 +14,46 @@
 
 <section id="inquiry-sec">
     <div class="container">
-        <div class="row pad-row">{{ form(form) }}</div>
+        <div class="row pad-row">
+            {{ form_start(form) }}
+            <table class="table">
+                <tr>
+                    <th><i class="fa fa-circle"></i></th>
+                    <td>
+                        {{ form_widget(form.name, {"attr": {"class": "form-control"}}) }}
+                        {{ form_errors(form.name) }}
+                    </td>
+                </tr>
+                <tr>
+                    <th><i class="fa fa-circle"></i></th>
+                    <td>
+                        {{ form_widget(form.email, {"attr": {"class": "form-control"}}) }}
+                        {{ form_errors(form.email) }}
+                    </td>
+                </tr>
+                <tr>
+                    <th><i class="fa fa-circle"></i></th>
+                    <td>
+                        {{ form_widget(form.tel, {"attr": {"class": "form-control"}}) }}
+                        {{ form_errors(form.tel) }}
+                    </td>
+                </tr>
+                <tr>
+                    <th><i class="fa fa-circle"></i></th>
+                    <td>
+                        {{ form_widget(form.type, {"attr": {"class": "form-control"}}) }}
+                        {{ form_errors(form.type) }}
+                    </td>
+                </tr>
+                <tr>
+                    <th><i class="fa fa-circle"></i></th>
+                    <td>
+                        {{ form_widget(form.content, {"attr": {"class": "form-control"}}) }}
+                        {{ form_errors(form.content) }}
+                    </td>
+                </tr>
+            </table>
+        </div>
     </div>
 </section>
 {% endblock %}
