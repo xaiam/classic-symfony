@@ -17,6 +17,7 @@ class InqueryFormType extends AbstractType
             ->add('tel')
             ->add('type')
             ->add('content')
+            ->add('submit')
         ;
     }
 

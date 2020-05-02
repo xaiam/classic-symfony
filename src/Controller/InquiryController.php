@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+use App\Entity\Inquiry;
+use App\Form\InqueryFormType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
@@ -28,17 +30,18 @@ class InquiryController extends AbstractController
 
     private function createInquiryForm()
     {
-        return $this
-            ->createFormBuilder()
-            ->add('name', TextType::class)
-            ->add('email', TextType::class)
-            ->add('tel', TextType::class, ['required' => false])
-            ->add('type', ChoiceType::class, ['choices' => ['公園について' => true, 'その他' => true,], 'expanded' => true])
-            ->add('content', TextareaType::class)
-            ->add('submit', SubmitType::class, ['label' => '送信'])
-            ->getForm()
-        ;
-    }
+        return $this->createForm(InqueryFormType::class);
+//        return $this
+//            ->createFormBuilder(new Inquiry())
+//            ->add('name', TextType::class)
+//            ->add('email', TextType::class)
+//            ->add('tel', TextType::class, ['required' => false])
+//            ->add('type', ChoiceType::class, ['choices' => ['公園について' => true, 'その他' => true,], 'expanded' => true])
+//            ->add('content', TextareaType::class)
+//            ->add('submit', SubmitType::class, ['label' => '送信'])
+//            ->getForm()
+//        ;
+//    }
 
     /**
      * @Route("/complete")
@@ -57,13 +60,18 @@ class InquiryController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $data = $form->getData();
+            $inquiry = $form->getData();
+//            dump($inquiry);
+
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($inquiry);
+            $em->flush();
 
             $message = (new \Swift_Message('Webサイトからのお問い合わせ'))
                 ->setFrom('webmaster@example.com')
                 ->setTo('admin@example.com')
                 ->setBody(
-                    $this->renderView('mail/inquiry.txt.twig', ['data' => $data])
+                    $this->renderView('mail/inquiry.txt.twig', ['data' => $inquiry])
                 );
 
             $mailer->send($message);
