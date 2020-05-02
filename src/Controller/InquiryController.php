@@ -20,14 +20,6 @@ class InquiryController extends AbstractController
      */
     public function indexAction()
     {
-//        $form = $this->createFormBuilder()
-//            ->add('name', TextType::class, ['label' => '名前'])
-//            ->add('email', TextType::class)
-//            ->add('tel', TextType::class, ['required' => false])
-//            ->add('type', ChoiceType::class, ['choices' => ['公園について' => true, 'その他' => true], 'expanded' => true])
-//            ->add('content', TextareaType::class)
-//            ->add('submit', SubmitType::class, ['label' => '送信'])
-//            ->getForm();
         return $this->render('Inquiry/index.html.twig', ['form' => $this->createInquiryForm()->createView()]);
 
     }
@@ -49,7 +41,7 @@ class InquiryController extends AbstractController
     /**
      * @Route("/complete")
      */
-    private function completeAction()
+    public function completeAction()
     {
         return $this->render('Inquiry/complete.html.twig');
     }
