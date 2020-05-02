@@ -9,12 +9,14 @@ use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
+use Twig\Environment;
 
 /**
  * @Route("/inquiry")
  */
 class InquiryController extends AbstractController
 {
+
     /**
      * @Route("/", methods={"GET"})
      */
@@ -49,14 +51,24 @@ class InquiryController extends AbstractController
     /**
      * @Route("/", methods={"POST"})
      */
-    public function indexPostAction(Request $request)
+    public function indexPostAction(Request $request, \Swift_Mailer $mailer)
     {
         $form = $this->createInquiryForm();
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            return $this->redirect(
-                $this->generateUrl('app_inquiry_complete'));
+            $data = $form->getData();
+
+            $message = (new \Swift_Message('Webサイトからのお問い合わせ'))
+                ->setFrom('webmaster@example.com')
+                ->setTo('admin@example.com')
+                ->setBody(
+                    $this->renderView('mail/inquiry.txt.twig', ['data' => $data])
+                );
+
+            $mailer->send($message);
+
+            return $this->redirectToRoute('app_inquiry_complete');
         }
 
         return $this->render('Inquiry/index.html.twig',[
