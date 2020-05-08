@@ -31,17 +31,7 @@ class InquiryController extends AbstractController
     private function createInquiryForm()
     {
         return $this->createForm(InqueryFormType::class);
-//        return $this
-//            ->createFormBuilder(new Inquiry())
-//            ->add('name', TextType::class)
-//            ->add('email', TextType::class)
-//            ->add('tel', TextType::class, ['required' => false])
-//            ->add('type', ChoiceType::class, ['choices' => ['公園について' => true, 'その他' => true,], 'expanded' => true])
-//            ->add('content', TextareaType::class)
-//            ->add('submit', SubmitType::class, ['label' => '送信'])
-//            ->getForm()
-//        ;
-//    }
+    }
 
     /**
      * @Route("/complete")
@@ -56,12 +46,12 @@ class InquiryController extends AbstractController
      */
     public function indexPostAction(Request $request, \Swift_Mailer $mailer)
     {
+        // ここで既にentityはInquiryFormTypeクラスにバインディングされている
         $form = $this->createInquiryForm();
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $inquiry = $form->getData();
-//            dump($inquiry);
 
             $em = $this->getDoctrine()->getManager();
             $em->persist($inquiry);

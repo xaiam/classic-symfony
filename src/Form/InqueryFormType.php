@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Inquiry;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -17,7 +18,7 @@ class InqueryFormType extends AbstractType
             ->add('tel')
             ->add('type')
             ->add('content')
-            ->add('submit')
+            ->add('submit', SubmitType::class, ['label' => '送信'])
         ;
     }
 

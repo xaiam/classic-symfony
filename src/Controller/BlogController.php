@@ -4,19 +4,25 @@ namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
+use App\Entity\BlogArticle;
 
 class BlogController extends AbstractController
 {
-    public function latestListAction()
+    public function latestList()
     {
-        $blogList = [
-        ['targetDate' => '2015年3月15日', 'title' => '東京公演レポート'],
-        ['targetDate' => '2015年3月15日', 'title' => '東京公演レポート'],
-        ['targetDate' => '2015年3月15日', 'title' => '東京公演レポート'],
-        ];
+        $this->test();
+        $em = $this->getDoctrine()->getManager();
+        $blogArticleRepository = $em->getRepository(BlogArticle::class);
+
+        $blogList = $blogArticleRepository->findBy([], ['targetDate' => 'DESC']);
 
         return $this->render('Blog/latestList.html.twig', [
             'blogList' => $blogList,
         ]);
+    }
+
+    public function test()
+    {
+
     }
 }
