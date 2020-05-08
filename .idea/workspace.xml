@@ -2,31 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ce8f9b36-1e6b-4a75-8b6e-8cc1f2742e36" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/symfony2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/packages/security.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/packages/test/validator.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/packages/validator.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Controller/AdminMenuController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/DataFixtures/AppFixtures.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/DataFixtures/UserFixtures.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entity/BlogArticle.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Repository/BlogArticleRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/%" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/packages/sensio_framework_extra.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/AdminInquiryEditController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/admin_inquiry_edit/index.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/classic-symfony.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/classic-symfony.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/BlogController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/BlogController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/InquiryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/InquiryController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/AdminInquiryListController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AdminInquiryListController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Inquiry.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Inquiry.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/InqueryFormType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/InqueryFormType.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Blog/latestList.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Blog/latestList.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Inquiry/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Inquiry/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Toppage/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Toppage/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Admin/Common/menu.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Admin/Common/menu.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Admin/Inquiry/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Admin/Inquiry/index.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -124,6 +113,7 @@
       <path value="$PROJECT_DIR$/vendor/symfony/security-bundle" />
       <path value="$PROJECT_DIR$/vendor/doctrine/data-fixtures" />
       <path value="$PROJECT_DIR$/vendor/doctrine/doctrine-fixtures-bundle" />
+      <path value="$PROJECT_DIR$/vendor/sensio/framework-extra-bundle" />
     </include_path>
   </component>
   <component name="ProjectId" id="1bbkPeo3xbGRcW0axAkOnt94YSa" />
@@ -166,7 +156,7 @@
       <option name="presentableId" value="Default" />
       <updated>1588908157606</updated>
       <workItem from="1588908159540" duration="380000" />
-      <workItem from="1588908556464" duration="10034000" />
+      <workItem from="1588908556464" duration="19770000" />
     </task>
     <servers />
   </component>
@@ -181,6 +171,10 @@
       <screen x="0" y="23" width="1280" height="716" />
     </state>
     <state x="449" y="279" key="#Composer/0.23.1280.716@0.23.1280.716" timestamp="1588908409810" />
+    <state x="89" y="23" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1588938986155">
+      <screen x="0" y="23" width="1280" height="715" />
+    </state>
+    <state x="89" y="23" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.23.1280.715@0.23.1280.715" timestamp="1588938986155" />
     <state x="149" y="23" width="982" height="716" key="SettingsEditor" timestamp="1588908303977">
       <screen x="0" y="23" width="1280" height="716" />
     </state>
