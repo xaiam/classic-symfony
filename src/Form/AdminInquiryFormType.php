@@ -15,9 +15,26 @@ class AdminInquiryFormType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('processStatus', ChoiceType::class, [choices => ['未対応', '対応中', '対応済',], 'empty_data' => 0, 'expanded' => true,])
-            ->add('processMemo', TextareaType::class)
-            ->add('submit', SubmitType::class, ['label' => '保存',])
+            ->add(
+                'processStatus',
+                ChoiceType::class,
+                [
+                    'choices' => [
+                        '未対応' => '未対応',
+                        '対応中' => '対応中',
+                        '対応済' => '対応済',
+                    ],
+                    'empty_data' => '未対応',
+                    'expanded' => true,
+                ]
+            )
+            ->add('processMemo', TextareaType::class, [
+//                'empty_data' => '',
+
+            ])
+            ->add('submit', SubmitType::class, [
+                'label' => '保存',
+            ])
         ;
     }
 

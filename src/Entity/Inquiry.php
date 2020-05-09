@@ -11,11 +11,6 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class Inquiry
 {
-    function __construct()
-    {
-        $this->processStatus = 0;
-        $this->processMemo = '';
-    }
 
     /**
      * @ORM\Id()
@@ -63,19 +58,24 @@ class Inquiry
     private $content;
 
     /**
-     * @var string
-     * @ORM\Column(name="process_status", type="string", length=20)
+     * @var string | null
+     * @ORM\Column(name="process_status", type="string", length=20, nullable=true)
      * @Assert\NotBlank(groups={"admin"})
      */
     private $processStatus;
 
     /**
-     * @var string
-     * @ORM\Column(name="process_memo", type="text")
+     * @var string | null
+     * @ORM\Column(name="process_memo", type="text", nullable=true)
      * @Assert\NotBlank(groups={"admin"})
      */
     private $processMemo;
-    
+
+    function __construct()
+    {
+        $this->processStatus = 0;
+        $this->processMemo = '';
+    }
 
     //    以下setter/getter
 
@@ -170,7 +170,7 @@ class Inquiry
         return $this->processStatus;
     }
 
-    public function setProcessStatus(string $processStatus): self
+    public function setProcessStatus(?string $processStatus): self
     {
         $this->processStatus = $processStatus;
 
@@ -182,7 +182,7 @@ class Inquiry
         return $this->processMemo;
     }
 
-    public function setProcessMemo(string $processMemo): self
+    public function setProcessMemo(?string $processMemo): self
     {
         $this->processMemo = $processMemo;
 

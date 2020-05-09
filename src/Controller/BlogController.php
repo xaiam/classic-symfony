@@ -10,7 +10,6 @@ class BlogController extends AbstractController
 {
     public function latestList()
     {
-        $this->test();
         $em = $this->getDoctrine()->getManager();
         $blogArticleRepository = $em->getRepository(BlogArticle::class);
 
@@ -21,8 +20,4 @@ class BlogController extends AbstractController
         ]);
     }
 
-    public function test()
-    {
-
-    }
 }

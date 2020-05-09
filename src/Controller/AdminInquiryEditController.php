@@ -10,16 +10,16 @@ use Symfony\Component\Routing\Annotation\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 
 /**
- * @Route("/admin/inquiry")
+ * @Route("/admin/inquiry", name="admin_inquiry")
  */
 class AdminInquiryEditController extends AbstractController
 {
 
     /**
-     * @Route("/{id}/edit", methods={"GET", "POST"}, name="admin_inquiry_input")
+     * @Route("/{id}/edit", methods={"GET", "POST"}, name="_edit")
      * @param Inquiry $inquiry
      */
-    public function input(Request $request, Inquiry $inquiry)
+    public function edit(Request $request, Inquiry $inquiry)
     {
         $form = $this->createForm(AdminInquiryFormType::class, $inquiry);
         $form->handleRequest($request);
