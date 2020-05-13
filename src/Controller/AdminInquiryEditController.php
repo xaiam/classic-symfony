@@ -27,7 +27,7 @@ class AdminInquiryEditController extends AbstractController
             $em = $this->getDoctrine()->getManager();
             $em->flush();
 
-            return $this->redirectToRoute('admin_inquiry_input');
+//            return $this->redirectToRoute('admin_inquiry_input');
         }
 
         return $this->render(
